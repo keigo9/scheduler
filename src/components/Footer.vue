@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="blue" padless>
+  <v-footer color="indigo" dark padless>
     <v-row class="flex" justify="center">
       <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
         <v-icon size="24px">
