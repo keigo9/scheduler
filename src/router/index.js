@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Group from "../views/Group.vue";
 import CreateGroup from "../views/CreateGroup.vue";
 import GroupMember from "../views/GroupMember.vue";
+import EditProfile from "../views/EditProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const routes = [
     path: "/groupmember",
     name: "GroupMember",
     component: GroupMember
+  },
+  {
+    path: "/editprofile",
+    name: "EditProfile",
+    component: EditProfile
   }
 ];
 

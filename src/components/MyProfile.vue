@@ -4,7 +4,9 @@
       <v-row class="fill-height">
         <v-card-title>
           <v-btn dark icon class="mr-4">
-            <v-icon>mdi-pencil</v-icon>
+            <router-link to="/editprofile" class="link">
+              <v-icon class="link-item">mdi-pencil</v-icon>
+            </router-link>
           </v-btn>
 
           <v-btn dark icon>
@@ -35,3 +37,13 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.link {
+  text-decoration: none;
+  color: #fff;
+  .link-item {
+    color: #fff;
+  }
+}
+</style>
