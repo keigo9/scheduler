@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>Create Group</h1>
     <v-form ref="form" v-model="valid" lazy-validation>
       <!-- upload image -->
       <v-file-input
