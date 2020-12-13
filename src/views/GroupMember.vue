@@ -1,6 +1,5 @@
 <template>
   <div class="member">
-    <MyProfile />
     <MemberPerson />
     <v-card align="center" max-width="1000" class="mx-auto">
       <router-link to="/creategroup" class="link">
@@ -13,13 +12,11 @@
 </template>
 
 <script>
-import MyProfile from "@/components/MyProfile.vue";
 import MemberPerson from "@/components/MemberPerson.vue";
 
 export default {
-  name: "Member",
+  name: "Group",
   components: {
-    MyProfile,
     MemberPerson
   }
 };

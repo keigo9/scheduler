@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Member from "../views/Member.vue";
+import Group from "../views/Group.vue";
 import CreateGroup from "../views/CreateGroup.vue";
+import GroupMember from "../views/GroupMember.vue";
 
 Vue.use(VueRouter);
 
@@ -22,14 +23,19 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/member",
-    name: "Member",
-    component: Member
+    path: "/group",
+    name: "Group",
+    component: Group
   },
   {
     path: "/creategroup",
     name: "CreateGroup",
     component: CreateGroup
+  },
+  {
+    path: "/groupmember",
+    name: "GroupMember",
+    component: GroupMember
   }
 ];
 

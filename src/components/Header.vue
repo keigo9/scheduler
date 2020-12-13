@@ -7,7 +7,7 @@
 
       <router-link to="/" class="link">HOME</router-link> |
       <router-link to="/about" class="link">About</router-link> |
-      <router-link to="/member" class="link">Member</router-link>
+      <router-link to="/group" class="link">Group</router-link>
 
       <v-spacer></v-spacer>
 

@@ -9,10 +9,12 @@
         </v-list-item-icon>
 
         <v-list-item-icon class="icon-num">
-          <v-icon>
-            mdi-tag-outline
-          </v-icon>
-          (13)
+          <router-link to="/groupmember" class="link">
+            <v-icon class="link-item">
+              mdi-tag-outline
+            </v-icon>
+            (13)
+          </router-link>
         </v-list-item-icon>
 
         <v-list-item-icon>
