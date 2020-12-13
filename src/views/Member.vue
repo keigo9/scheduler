@@ -2,6 +2,11 @@
   <div class="member">
     <MyProfile />
     <MemberPerson />
+    <v-card align="center" max-width="1000" class="mx-auto">
+      <v-btn block elevation="3" color="primary">
+        Create Group
+      </v-btn>
+    </v-card>
   </div>
 </template>
 
@@ -17,3 +22,5 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss"></style>

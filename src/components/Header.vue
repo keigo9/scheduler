@@ -21,3 +21,10 @@
     </v-toolbar>
   </div>
 </template>
+
+<style scoped>
+.link {
+  color: #fff;
+  margin: 0px 5px;
+}
+</style>

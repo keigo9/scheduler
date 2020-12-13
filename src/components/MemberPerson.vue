@@ -8,21 +8,28 @@
           </v-icon>
         </v-list-item-icon>
 
-        <v-list-item-icon>
-          <v-icon>
-            mdi-calendar-multiple
-          </v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-icon>
+        <v-list-item-icon class="icon-num">
           <v-icon>
             mdi-tag-outline
           </v-icon>
           (13)
         </v-list-item-icon>
 
+        <v-list-item-icon>
+          <router-link to="/about" class="link">
+            <v-icon class="link-item">
+              mdi-calendar-multiple
+            </v-icon>
+          </router-link>
+        </v-list-item-icon>
+
         <v-list-item-content>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
+          <router-link to="/about" class="link">
+            <v-list-item-title
+              v-text="item.title"
+              class="link-item"
+            ></v-list-item-title>
+          </router-link>
         </v-list-item-content>
 
         <v-list-item-avatar>
@@ -77,3 +84,15 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.icon-num {
+  margin-right: 10px;
+}
+.link {
+  text-decoration: none;
+  .link-item {
+    color: rgb(63, 63, 63);
+  }
+}
+</style>
