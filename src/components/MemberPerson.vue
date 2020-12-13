@@ -88,9 +88,12 @@ export default {
 <style scoped lang="scss">
 .icon-num {
   margin-right: 10px;
+  background-color: rgb(131, 131, 131, 0.3);
+  border-radius: 50px;
 }
 .link {
   text-decoration: none;
+  color: rgb(63, 63, 63);
   .link-item {
     color: rgb(63, 63, 63);
   }

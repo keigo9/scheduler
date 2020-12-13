@@ -3,9 +3,11 @@
     <MyProfile />
     <MemberPerson />
     <v-card align="center" max-width="1000" class="mx-auto">
-      <v-btn block elevation="3" color="primary">
-        Create Group
-      </v-btn>
+      <router-link to="/creategroup" class="link">
+        <v-btn block elevation="3" color="primary">
+          Create Group
+        </v-btn>
+      </router-link>
     </v-card>
   </div>
 </template>
@@ -23,4 +25,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.link {
+  text-decoration: none;
+  color: #fff;
+  .link-item {
+    color: #fff;
+  }
+}
+</style>
