@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.member {
+  margin-top: 30px;
+}
 .link {
   text-decoration: none;
   color: #fff;

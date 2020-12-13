@@ -36,6 +36,11 @@ export default {
     return {
       input_image: null,
       uploadImageUrl: "",
+      nameRules: [
+        v => !!v || "Name is required",
+        v => (v && v.length <= 10) || "Name must be less than 10 characters"
+      ],
+      name: "",
       valid: true
     };
   },
