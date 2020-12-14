@@ -1,5 +1,6 @@
 <template>
   <div class="member">
+    <h1 class="ttl">CPSLab</h1>
     <MemberPerson />
     <v-card align="center" max-width="1000" class="mx-auto">
       <router-link to="/creategroup" class="link">
@@ -25,6 +26,9 @@ export default {
 <style scoped lang="scss">
 .member {
   margin-top: 30px;
+}
+.ttl {
+  text-align: center;
 }
 .link {
   text-decoration: none;
