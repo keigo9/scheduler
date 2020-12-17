@@ -1,7 +1,7 @@
 <template>
   <div class="member">
     <MyProfile />
-    <MemberPerson />
+    <Groups />
     <v-card align="center" max-width="1000" class="mx-auto">
       <!-- <router-link to="/creategroup" class="link"> -->
       <v-btn block elevation="3" color="primary" @click="toggleCreate()">
@@ -15,19 +15,23 @@
 
 <script>
 import MyProfile from "@/components/MyProfile.vue";
-import MemberPerson from "@/components/MemberPerson.vue";
-import CreateGroup from "@/views/CreateGroup.vue";
+import Groups from "@/components/Groups.vue";
+import CreateGroup from "@/components/CreateGroup.vue";
 
 export default {
   name: "Group",
   components: {
     MyProfile,
-    MemberPerson,
+    Groups,
     CreateGroup
   },
   data() {
     return {
-      isCreate: false
+      isCreate: false,
+      formData: {
+        src: "",
+        groupname: ""
+      }
     };
   },
   methods: {

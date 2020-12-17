@@ -2,6 +2,29 @@
   <v-card max-width="1000" class="mx-auto">
     <v-list>
       <v-list-item v-for="item in items" :key="item.title">
+        <v-list-item-icon @click="isStar(item)">
+          <v-icon :color="item.color">
+            mdi-star
+          </v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-icon class="icon-num">
+          <router-link to="/groupmember" class="link">
+            <v-icon class="link-item">
+              mdi-tag-outline
+            </v-icon>
+            (13)
+          </router-link>
+        </v-list-item-icon>
+
+        <v-list-item-icon>
+          <router-link to="/about" class="link">
+            <v-icon class="link-item">
+              mdi-calendar-multiple
+            </v-icon>
+          </router-link>
+        </v-list-item-icon>
+
         <v-list-item-content>
           <router-link to="/about" class="link">
             <v-list-item-title
@@ -27,7 +50,7 @@ export default {
         {
           icon: false,
           color: "gray",
-          title: "Kennichi",
+          title: "CPS Lab",
           avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg"
         },
         {

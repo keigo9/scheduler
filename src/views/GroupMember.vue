@@ -3,22 +3,33 @@
     <h1 class="ttl">CPSLab</h1>
     <MemberPerson />
     <v-card align="center" max-width="1000" class="mx-auto">
-      <router-link to="/creategroup" class="link">
-        <v-btn block elevation="3" color="primary">
-          Create Group
-        </v-btn>
-      </router-link>
+      <v-btn block elevation="3" color="primary" @click="toggleCreate()">
+        Add Member +
+      </v-btn>
+      <add-member v-if="isCreate" />
     </v-card>
   </div>
 </template>
 
 <script>
 import MemberPerson from "@/components/MemberPerson.vue";
+import AddMember from "@/components/AddMember.vue";
 
 export default {
   name: "Group",
   components: {
-    MemberPerson
+    MemberPerson,
+    AddMember
+  },
+  data() {
+    return {
+      isCreate: false
+    };
+  },
+  methods: {
+    toggleCreate() {
+      this.isCreate = !this.isCreate;
+    }
   }
 };
 </script>

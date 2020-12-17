@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Group from "../views/Group.vue";
-import CreateGroup from "../views/CreateGroup.vue";
 import GroupMember from "../views/GroupMember.vue";
 import EditProfile from "../views/EditProfile.vue";
 
@@ -29,11 +28,6 @@ const routes = [
     component: Group
   },
   {
-    path: "/creategroup",
-    name: "CreateGroup",
-    component: CreateGroup
-  },
-  {
     path: "/groupmember",
     name: "GroupMember",
     component: GroupMember
@@ -46,6 +40,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes
 });
 
