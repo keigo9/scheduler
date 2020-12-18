@@ -1,6 +1,6 @@
 <template>
   <div class="member">
-    <h1 class="ttl">CPSLab</h1>
+    <h1 class="ttl">{{ teamName }}</h1>
     <MemberPerson />
     <v-card align="center" max-width="1000" class="mx-auto">
       <v-btn block elevation="3" color="primary" @click="toggleCreate()">
@@ -17,6 +17,7 @@ import AddMember from "@/components/AddMember.vue";
 
 export default {
   name: "Group",
+  props: ["teamName"],
   components: {
     MemberPerson,
     AddMember
@@ -29,6 +30,12 @@ export default {
   methods: {
     toggleCreate() {
       this.isCreate = !this.isCreate;
+    }
+  },
+  watch: {
+    $route(to, from) {
+      console.log(to);
+      console.log(from);
     }
   }
 };

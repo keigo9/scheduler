@@ -28,9 +28,10 @@ const routes = [
     component: Group
   },
   {
-    path: "/groupmember",
+    path: "/groupmember/:teamName",
     name: "GroupMember",
-    component: GroupMember
+    component: GroupMember,
+    props: true
   },
   {
     path: "/editprofile",

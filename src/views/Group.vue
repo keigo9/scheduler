@@ -3,11 +3,9 @@
     <MyProfile />
     <Groups />
     <v-card align="center" max-width="1000" class="mx-auto">
-      <!-- <router-link to="/creategroup" class="link"> -->
       <v-btn block elevation="3" color="primary" @click="toggleCreate()">
         Create Group
       </v-btn>
-      <!-- </router-link> -->
       <create-group v-if="isCreate" />
     </v-card>
   </div>

@@ -9,7 +9,7 @@
         </v-list-item-icon>
 
         <v-list-item-icon class="icon-num">
-          <router-link to="/groupmember" class="link">
+          <router-link :to="'/groupmember/' + item.title" class="link">
             <v-icon class="link-item">
               mdi-tag-outline
             </v-icon>
