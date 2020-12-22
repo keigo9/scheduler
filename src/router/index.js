@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
+import Calender from "../views/Calender.vue";
 import Group from "../views/Group.vue";
 import GroupMember from "../views/GroupMember.vue";
 import EditProfile from "../views/EditProfile.vue";
@@ -20,13 +21,9 @@ const routes = [
     component: Login
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/calender",
+    name: "Calender",
+    component: Calender
   },
   {
     path: "/group",
