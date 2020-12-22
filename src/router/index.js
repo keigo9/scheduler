@@ -21,9 +21,10 @@ const routes = [
     component: Login
   },
   {
-    path: "/calender",
+    path: "/calender/:teamName",
     name: "Calender",
-    component: Calender
+    component: Calender,
+    props: true
   },
   {
     path: "/group",

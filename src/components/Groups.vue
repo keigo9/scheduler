@@ -18,7 +18,7 @@
         </v-list-item-icon>
 
         <v-list-item-icon>
-          <router-link to="/calender" class="link">
+          <router-link :to="'/calender/' + item.title" class="link">
             <v-icon class="link-item">
               mdi-calendar-multiple
             </v-icon>
@@ -26,7 +26,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <router-link to="/calender" class="link">
+          <router-link :to="'/calender/' + item.title" class="link">
             <v-list-item-title
               v-text="item.title"
               class="link-item"
