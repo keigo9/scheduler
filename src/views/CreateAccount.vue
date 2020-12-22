@@ -3,9 +3,9 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
-          <h1 class="display-1 font-weight-bold mb-3">Login</h1>
-          <p>未登録の方はアカウントを作成してください</p>
-          <router-link to="createaccount"><p>*新規登録</p></router-link>
+          <h1 class="display-1 font-weight-bold mb-3">Create Account</h1>
+          <p>すでに登録済みの人はログインしてください</p>
+          <router-link to="login"><p>*ログイン</p></router-link>
         </v-col>
         <v-col cols="12" md="4">
           <v-card outlined elevation="4">
@@ -24,7 +24,7 @@
             </v-card-text>
             <v-card-actions>
               <v-btn block class="mb-2" color="primary">
-                ログイン
+                新規登録
               </v-btn>
             </v-card-actions>
           </v-card>

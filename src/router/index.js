@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
+import CreateAccount from "../views/CreateAccount.vue";
 import Calender from "../views/Calender.vue";
 import Group from "../views/Group.vue";
 import GroupMember from "../views/GroupMember.vue";
@@ -19,6 +20,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/createaccount",
+    name: "CreateAccount",
+    component: CreateAccount
   },
   {
     path: "/calender/:teamName",
