@@ -6,6 +6,7 @@
       <v-toolbar-title>Inbox</v-toolbar-title>
 
       <router-link to="/" class="link">HOME</router-link> |
+      <router-link to="/login" class="link">Login</router-link> |
       <router-link to="/about" class="link">About</router-link> |
       <router-link to="/group" class="link">Group</router-link>
 
