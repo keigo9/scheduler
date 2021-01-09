@@ -3,10 +3,9 @@
     <v-toolbar color="indigo" dark>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Inbox</v-toolbar-title>
+      <v-toolbar-title>Scheduler</v-toolbar-title>
 
-      <router-link to="/" class="link">HOME</router-link> |
-      <router-link to="/login" class="link">Login</router-link> |
+      <router-link to="/" class="link">Login</router-link> |
       <router-link to="/group" class="link">Group</router-link>
 
       <v-spacer></v-spacer>
