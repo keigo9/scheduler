@@ -16,10 +16,13 @@
 
         <v-spacer></v-spacer>
 
-        <v-card-title class="white--text pl-12 pt-12">
-          <div class="display-1 pl-12 pt-12">
+        <v-card-title class="white--text">
+          <v-list-item-title class="display-1 pt-16">
             {{ name }}
-          </div>
+          </v-list-item-title>
+          <v-list-item-title class="display-0 pt-0">
+            {{ email }}
+          </v-list-item-title>
         </v-card-title>
       </v-row>
     </v-img>
@@ -32,16 +35,18 @@ import axios from "axios";
 export default {
   data() {
     return {
-      name: "Ali Conners",
+      name: "",
+      email: "",
       src: require("@/assets/ali.png")
       // src: "https://cdn.vuetifyjs.com/images/lists/ali.png"
     };
   },
   created() {
     axios
-      .get("http://127.0.0.1:8000/api/user/")
+      .get("/user/")
       .then(response => {
-        console.log(response);
+        this.name = response.data[0].username;
+        this.email = response.data[0].email;
       })
       .catch(error => {
         console.log(error);

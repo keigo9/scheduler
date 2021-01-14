@@ -204,7 +204,8 @@
 </template>
 
 <script>
-import { db } from "@/main";
+import axios from "axios";
+
 export default {
   props: ["teamName"],
   data: () => ({
@@ -267,12 +268,16 @@ export default {
   },
   methods: {
     async getEvents() {
-      let snapshot = await db.collection("calEvent").get();
+      let snapshot = await axios.get("/schedule/");
       const events = [];
-      snapshot.forEach(doc => {
+      console.log(snapshot.data);
+      snapshot.data.forEach(doc => {
+        // doc.start = doc.start.toISOString().substr(0, 10);
+        // doc.end = doc.end.toISOString().substr(0, 10);
         let appData = doc.data();
         appData.id = doc.id;
-        events.push(appData);
+        console.log(doc);
+        events.push(doc);
       });
       this.events = events;
     },
@@ -298,12 +303,13 @@ export default {
     },
     async addEvent() {
       if (this.name && this.start && this.end) {
-        await db.collection("calEvent").add({
-          name: this.name,
+        await axios.post("/schedule/", {
+          owner: "keigo",
+          title: this.name,
+          color: this.color,
           details: this.details,
           start: this.start,
-          end: this.end,
-          color: this.color
+          end: this.end
         });
         this.getEvents();
         (this.name = ""),
@@ -319,19 +325,19 @@ export default {
       this.currentlyEditing = ev.id;
     },
     async updateEvent(ev) {
-      await db
+      await axios
         .collection("calEvent")
         .doc(this.currentlyEditing)
-        .update({
+        .put("/schedule/", {
           details: ev.details
         });
       (this.selectedOpen = false), (this.currentlyEditing = null);
     },
     async deleteEvent(ev) {
-      await db
+      await axios
         .collection("calEvent")
         .doc(ev)
-        .delete();
+        .delete("/schedule/");
       (this.selectedOpen = false), this.getEvents();
     },
     showEvent({ nativeEvent, event }) {

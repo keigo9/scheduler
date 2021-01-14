@@ -1,7 +1,7 @@
 <template>
   <v-card max-width="1000" class="mx-auto">
     <v-list>
-      <v-list-item v-for="item in items" :key="item.title">
+      <v-list-item v-for="item in groupdata" :key="item.title">
         <v-list-item-icon @click="isStar(item)">
           <v-icon :color="item.color">
             mdi-star
@@ -43,14 +43,17 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
+      groupdata: [],
       items: [
         {
           icon: false,
           color: "gray",
-          title: "CPS Lab",
+          title: "CPS lab",
           avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg"
         },
         {
@@ -82,7 +85,21 @@ export default {
       } else {
         item.color = "gray";
       }
+    },
+    getData() {
+      axios
+        .get("/group/")
+        .then(response => {
+          this.groupdata = response.data;
+          console.log(this.groupdata);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
+  },
+  mounted() {
+    this.getData();
   }
 };
 </script>

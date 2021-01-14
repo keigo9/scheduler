@@ -22,7 +22,7 @@
         required
       ></v-text-field>
       <!-- submit btn -->
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+      <v-btn :disabled="!valid" color="success" class="mr-4" @click="add()">
         Validate
       </v-btn>
     </v-form>
@@ -30,9 +30,14 @@
 </template>
 
 <script>
+import axios from "axios";
+import Group from "../views/Group.vue";
+
 export default {
   name: "ProfileImagePreviewComponent",
-
+  conmponent: {
+    Group
+  },
   data() {
     return {
       input_image: null,
@@ -61,9 +66,20 @@ export default {
         this.uploadImageUrl = "";
       }
     },
-    //submit methods
-    validate() {
-      this.$refs.form.validate();
+    //send DB methods
+    add() {
+      axios
+        .post("/group/", {
+          owner: 1,
+          title: this.name
+        })
+        .then(response => {
+          console.log(response);
+          Group.isCreate();
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
