@@ -31,13 +31,9 @@
 
 <script>
 import axios from "axios";
-import Group from "../views/Group.vue";
 
 export default {
   name: "ProfileImagePreviewComponent",
-  conmponent: {
-    Group
-  },
   data() {
     return {
       input_image: null,
@@ -75,7 +71,7 @@ export default {
         })
         .then(response => {
           console.log(response);
-          Group.isCreate();
+          this.$emit("isCreate");
         })
         .catch(error => {
           console.log(error);

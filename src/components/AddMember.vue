@@ -22,7 +22,7 @@
         required
       ></v-text-field>
       <!-- submit btn -->
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+      <v-btn :disabled="!valid" color="success" class="mr-4" @click="add()">
         Validate
       </v-btn>
     </v-form>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "ProfileImagePreviewComponent",
 
@@ -62,8 +64,21 @@ export default {
       }
     },
     //submit methods
-    validate() {
-      this.$refs.form.validate();
+    add() {
+      axios
+        .post("/friend/", {
+          user_id: 1,
+          friend_id: 1,
+          message: this.name,
+          friend_status: false
+        })
+        .then(response => {
+          console.log(response);
+          this.$emit("isCreate");
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };

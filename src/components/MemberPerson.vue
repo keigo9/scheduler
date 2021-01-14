@@ -15,11 +15,11 @@
     </v-row>
     <div class="clear"></div>
     <v-list>
-      <v-list-item v-for="item in items" :key="item.title">
+      <v-list-item v-for="item in persons" :key="item.message">
         <!-- name -->
         <v-list-item-content>
           <v-list-item-title
-            v-text="item.title"
+            v-text="item.message"
             class="link-item"
           ></v-list-item-title>
         </v-list-item-content>
@@ -28,7 +28,15 @@
           <v-img :src="item.avatar"></v-img>
         </v-list-item-avatar>
         <!-- delete btn -->
-        <v-btn class="mx-2" fab dark small color="primary" v-if="edit">
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          small
+          color="primary"
+          v-if="edit"
+          @click="deleted()"
+        >
           <v-icon dark>
             mdi-minus
           </v-icon>
@@ -39,10 +47,13 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       edit: false,
+      persons: [],
       items: [
         {
           icon: false,
@@ -74,7 +85,32 @@ export default {
   methods: {
     isEdit() {
       this.edit = !this.edit;
+    },
+    getData() {
+      axios
+        .get("/friend/")
+        .then(response => {
+          this.persons = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    deleted() {
+      axios
+        .delete("/friend/" + this.persons[0])
+        .then(response => {
+          this.getData();
+          this.isEdit();
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
+  },
+  created() {
+    this.getData();
   }
 };
 </script>

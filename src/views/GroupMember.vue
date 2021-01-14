@@ -1,12 +1,12 @@
 <template>
   <div class="member">
     <h1 class="ttl">{{ teamName }}</h1>
-    <MemberPerson />
+    <MemberPerson ref="groupmember" />
     <v-card align="center" max-width="1000" class="mx-auto">
       <v-btn block elevation="3" color="primary" @click="toggleCreate()">
         Add Member +
       </v-btn>
-      <add-member v-if="isCreate" />
+      <add-member v-if="isCreate" @isCreate="toggleCreate()" />
     </v-card>
   </div>
 </template>
@@ -30,6 +30,7 @@ export default {
   methods: {
     toggleCreate() {
       this.isCreate = !this.isCreate;
+      this.$refs.groupmember.getData();
     }
   },
   watch: {
