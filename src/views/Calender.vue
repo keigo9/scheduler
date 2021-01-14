@@ -269,17 +269,27 @@ export default {
   methods: {
     async getEvents() {
       let snapshot = await axios.get("/schedule/");
-      const events = [];
-      console.log(snapshot.data);
+``
+      const events = []
+
+      console.log(snapshot.data[0].start);
       snapshot.data.forEach(doc => {
-        // doc.start = doc.start.toISOString().substr(0, 10);
-        // doc.end = doc.end.toISOString().substr(0, 10);
-        let appData = doc.data();
+        let start = this.convertDateType(doc.start).substr(0,10);
+        let end = this.convertDateType(doc.end).substr(0,10);
+        let appData = doc;
         appData.id = doc.id;
-        console.log(doc);
-        events.push(doc);
+        appData.start = start;
+        appData.end = end;
+        events.push(appData);
       });
       this.events = events;
+      // console.log(this.events);
+
+    },
+    convertDateType(date){
+      let original_date = new Date(date);
+      let converted_date = original_date.toISOString();
+      return converted_date;
     },
     setDialogDate({ date }) {
       this.dialogDate = true;
@@ -302,14 +312,13 @@ export default {
       this.$refs.calendar.next();
     },
     async addEvent() {
-      if (this.name && this.start && this.end) {
+      if (this.name) {
         await axios.post("/schedule/", {
-          owner: "keigo",
-          title: this.name,
+          name: this.name,
           color: this.color,
-          details: this.details,
-          start: this.start,
-          end: this.end
+          detail: this.detail,
+          start: "2021-01-01",
+          end: "2021-01-02"
         });
         this.getEvents();
         (this.name = ""),

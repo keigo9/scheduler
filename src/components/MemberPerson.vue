@@ -98,7 +98,7 @@ export default {
     },
     deleted() {
       axios
-        .delete("/friend/" + this.persons[0])
+        .delete("/friend/4")
         .then(response => {
           this.getData();
           this.isEdit();

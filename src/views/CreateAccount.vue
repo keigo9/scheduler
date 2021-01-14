@@ -21,14 +21,20 @@
                 label="メールアドレス"
               ></v-text-field>
               <v-text-field
-                v-model="passwd"
+                v-model="password"
                 type="password"
                 :rules="passwdRules"
                 label="パスワード"
               ></v-text-field>
+              <v-text-field
+                v-model="password_confirmation"
+                type="password"
+                :rules="passwdRules"
+                label="パスワードを再入力"
+              ></v-text-field>
             </v-card-text>
             <v-card-actions>
-              <v-btn block class="mb-2" color="primary">
+              <v-btn @click="post" block class="mb-2" color="primary">
                 新規登録
               </v-btn>
             </v-card-actions>
@@ -40,21 +46,34 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data: () => ({
     valid: false,
     name: "",
     nameRules: [
       v => !!v || "Name is required",
-      v => v.length <= 10 || "Name must be less than 10 characters"
+      v => v.length <= 10 || "Name must be less than 10 characters",
     ],
     email: "",
     emailRules: [
       v => !!v || "必須項目",
-      v => /.+@.+/.test(v) || "有効なアドレスを入力してください"
+      v => /.+@.+/.test(v) || "有効なアドレスを入力してください",
     ],
-    passwd: "",
-    passwdRules: [v => !!v || "必須項目"]
-  })
+    password: "",
+    password_confirmation: "",
+    passwdRules: [(v) => !!v || "必須項目"],
+  }),
+  methods: {
+    post() {
+      let data = {
+        username: this.name,
+        email: this.email,
+        password1: this.password,
+        password2: this.password_confirmation,
+      };
+      axios.post("rest-auth/registration/", data);
+    }
+  }
 };
 </script>

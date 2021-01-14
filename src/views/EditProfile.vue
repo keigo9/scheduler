@@ -88,15 +88,32 @@ export default {
         })
         .then(response => {
           console.log(response);
-          this.$router.push("/group");
+          console.log(this.input_image);
+          this.updata2();
         })
         .catch(error => {
           console.log(error);
         });
     },
-    //this fromを検証
-    validate() {
-      this.$refs.form.validate();
+    updata2() {
+      var formData = new FormData();
+      formData.append("image", this.input_image);
+      axios
+        .put(
+          "/album/1",
+          {
+            title: "test",
+            picture: formData
+          },
+          { "Content-Type": "multipart/form-data" }
+        )
+        .then(response => {
+          console.log(response);
+          this.$router.push("/group");
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   created() {

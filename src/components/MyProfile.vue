@@ -37,20 +37,37 @@ export default {
     return {
       name: "",
       email: "",
-      src: require("@/assets/ali.png")
+      src: "" //require("@/assets/ali.png")
       // src: "https://cdn.vuetifyjs.com/images/lists/ali.png"
     };
   },
+  methods: {
+    getData() {
+      axios
+        .get("/user/")
+        .then(response => {
+          this.name = response.data[0].username;
+          this.email = response.data[0].email;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    getData2() {
+      axios
+        .get("/album/")
+        .then(response => {
+          this.src = response.data[0].picture;
+          console.log(response.data[0].picture);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
   created() {
-    axios
-      .get("/user/")
-      .then(response => {
-        this.name = response.data[0].username;
-        this.email = response.data[0].email;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.getData();
+    this.getData2();
   }
 };
 </script>
